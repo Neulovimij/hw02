@@ -22,7 +22,7 @@ export const postsRepository = {
         let post = db.posts.find(p => p.id === id)
         return post
     },
-    updatePost(id: string, title: string, shortDescription: string, content: string, blogId: string, blogName: string) {
+    updatePost(id: string, title: string, shortDescription: string, content: string, blogId: string) {
         const post = db.posts.find(p => p.id === id)
         if (post) {
             post.title = title,

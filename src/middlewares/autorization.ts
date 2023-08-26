@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from "express";
-import {header, validationResult} from "express-validator"
+
 
 export const autorizationValidationMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const auth = req.headers.authorization

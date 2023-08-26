@@ -41,11 +41,7 @@ blogsRouter.put(`/:blogsId`,
             name,
             description,
             websiteUrl)
-        const newBlog = blogsRepository.createBlog(
-            name,
-            description,
-            websiteUrl
-        )
+
         if (isUpdated) {
             res.sendStatus(204)
         } else {
