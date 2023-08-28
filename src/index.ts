@@ -13,7 +13,7 @@ app.use(express.json())
 
 app.use("/blogs", blogsRouter)
 app.use("/posts", postsRouter)
-app.use("/all-data",testingRouter)
+app.use("/testing/all-data",testingRouter)
 
 app.listen(port, () => {
     console.log(`Example app listenning on port ${port}`)
