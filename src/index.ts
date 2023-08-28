@@ -20,6 +20,7 @@ app.use("/posts", postsRouter)
 app.delete("/testing/all-data", (req: express.Request, res: express.Response) => {
     db.blogs.length = 0;
     db.posts.length = 0;
+    res.sendStatus(204)
 });
 
 
