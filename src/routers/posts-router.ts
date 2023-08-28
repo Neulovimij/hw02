@@ -37,14 +37,14 @@ postsRouter.put(`/:postsId`,
     autorizationValidationMiddleware,
     validationCreateUpdatePost,
     (req: Request, res: Response) => {
-        const {title, shortDescription, content, blogId, blogName} = req.body
+        const {title, shortDescription, content, blogId} = req.body
         const isUpdated = postsRepository.updatePost(
             req.params.postId,
             title,
             shortDescription,
             content,
             blogId,
-            blogName
+
             )
 
         if (isUpdated) {
