@@ -2,6 +2,7 @@ import {Request, Response, Router} from "express";
 import {autorizationValidationMiddleware} from "../middlewares/autorization";
 import {postsRepository} from "../repositories/posts-repositoriy";
 import {validationCreateUpdatePost} from "../middlewares/posts-validation";
+import {inputValidatorMiddleware} from "../middlewares/input-validation-middleware";
 
 export const postsRouter = Router({})
 
@@ -36,6 +37,7 @@ postsRouter.get(`/:postsId`, (req: Request, res: Response) => {
 postsRouter.put(`/:postsId`,
     autorizationValidationMiddleware,
     validationCreateUpdatePost,
+    inputValidatorMiddleware,
     (req: Request, res: Response) => {
         const {title, shortDescription, content, blogId} = req.body
         const isUpdated = postsRepository.updatePost(
