@@ -41,13 +41,12 @@ postsRouter.put(`/:postsId`,
     (req: Request, res: Response) => {
         const {title, shortDescription, content, blogId} = req.body
         const isUpdated = postsRepository.updatePost(
-            req.params.id,
+            req.params.postsId,
             title,
             shortDescription,
             content,
             blogId,
             )
-
         if (isUpdated) {
             res.sendStatus(204)
         } else {
