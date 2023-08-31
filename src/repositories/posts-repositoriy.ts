@@ -34,10 +34,11 @@ export const postsRepository = {
             return false
         }
     },
-    deleteBlog(id: string) {
-        const newBlogs = db.blogs.filter(b => b.id !== id)
-        if (newBlogs.length < db.blogs.length) {
-            db.blogs = newBlogs
+    deletePost(id: string) {
+        const newPosts = db.posts.filter(p => p.id !== id)
+        if (newPosts.length <
+            db.posts.length) {
+            db.posts = newPosts
             return true
         } else {
             return false

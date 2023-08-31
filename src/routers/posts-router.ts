@@ -44,7 +44,6 @@ postsRouter.put(`/:postsId`,
             shortDescription,
             content,
             blogId,
-
             )
 
         if (isUpdated) {
@@ -57,7 +56,7 @@ postsRouter.put(`/:postsId`,
 postsRouter.delete(`/:postsId`,
     autorizationValidationMiddleware,
     (req: Request, res: Response) => {
-        const isDeleted = postsRepository.deleteBlog(req.params.postsId)
+        const isDeleted = postsRepository.deletePost(req.params.postsId)
         if (isDeleted) {
             res.sendStatus(204)
         } else {
