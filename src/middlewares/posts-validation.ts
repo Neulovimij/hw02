@@ -1,6 +1,6 @@
 import {body} from "express-validator";
 import {db} from "../db";
-import {inputValidatorMiddlevare} from "./input-validation-middleware";
+import {inputValidatorMiddleware} from "./input-validation-middleware";
 
 
 export const validationCreateUpdatePost = [
@@ -16,5 +16,5 @@ export const validationCreateUpdatePost = [
             return true
         }
     }) ,
-inputValidatorMiddlevare
+inputValidatorMiddleware
 ]

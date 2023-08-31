@@ -2,6 +2,7 @@ import {Request, Response,Router} from "express";
 import {blogsRepository} from "../repositories/blogs-repositoriy";
 import {autorizationValidationMiddleware} from "../middlewares/autorization";
 import {validationCreateUpdateBlog} from "../middlewares/blogs-validation";
+import {inputValidatorMiddleware} from "../middlewares/input-validation-middleware";
 
 export const blogsRouter = Router({})
 
@@ -12,6 +13,7 @@ const blogs = blogsRepository.findBlogs()
 blogsRouter.post(`/`,
     autorizationValidationMiddleware,
     validationCreateUpdateBlog,
+    inputValidatorMiddleware,
     (req: Request, res: Response ) => {
   const {name, description, websiteUrl} = req.body
   const newBlog = blogsRepository.createBlog(
@@ -34,6 +36,7 @@ blogsRouter.get(`/:blogsId`, (req: Request, res: Response)=>{
 blogsRouter.put(`/:blogsId`,
     autorizationValidationMiddleware,
     validationCreateUpdateBlog,
+    inputValidatorMiddleware,
     (req: Request, res: Response ) => {
         const {name, description, websiteUrl} = req.body
         const isUpdated = blogsRepository.updateBlog(

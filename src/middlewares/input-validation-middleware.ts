@@ -9,7 +9,7 @@ const errorFormater = ({msg, path}: any) => {
     }
 }
 
-export const inputValidatorMiddlevare = (req: Request, res: Response, next: NextFunction) => {
+export const inputValidatorMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         const errorsMessages = errors.array({onlyFirstError: true}).map (e => errorFormater(e))
